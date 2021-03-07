@@ -1,6 +1,5 @@
 package ThMod.cards.Marisa;
 
-
 import static ThMod.patches.CardTagEnum.SPARK;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -18,8 +17,7 @@ import ThMod.cards.derivations.Spark;
 import ThMod.patches.AbstractCardEnum;
 import basemod.abstracts.CustomCard;
 
-public class DoubleSpark
-    extends CustomCard {
+public class DoubleSpark extends CustomCard {
 
   public static final String ID = "DoubleSpark";
   private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -33,43 +31,24 @@ public class DoubleSpark
   private static final int UPG_DMG = 2;
 
   public DoubleSpark() {
-    super(
-        ID,
-        NAME,
-        IMG_PATH,
-        COST,
-        DESCRIPTION,
-        AbstractCard.CardType.ATTACK,
-        AbstractCardEnum.MARISA_COLOR,
-        AbstractCard.CardRarity.COMMON,
-        AbstractCard.CardTarget.ENEMY
-    );
+    super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.ATTACK, AbstractCardEnum.MARISA_COLOR,
+        AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.ENEMY);
 
     this.baseDamage = ATK_DMG;
     this.tags.add(SPARK);
+    this.cardsToPreview = new Spark();
   }
 
   public void use(AbstractPlayer p, AbstractMonster m) {
 
-    AbstractDungeon.actionManager.addToBottom(
-        new DamageAction(
-            m,
-            new DamageInfo(
-                p,
-                this.damage,
-                this.damageTypeForTurn
-            ),
-            AbstractGameAction.AttackEffect.SLASH_DIAGONAL
-        )
-    );
+    AbstractDungeon.actionManager.addToBottom(new DamageAction(m,
+        new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 
     AbstractCard c = new Spark();
     if (this.upgraded) {
       c.upgrade();
     }
-    AbstractDungeon.actionManager.addToBottom(
-        new MakeTempCardInHandAction(c, 1)
-    );
+    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(c, 1));
   }
 
   public AbstractCard makeCopy() {

@@ -40,6 +40,7 @@ Like many other mods,this mod needs [BaseMod](https://github.com/daviscook477/Ba
   * BlackRuse (https://github.com/lionpkqq) : programming consultation
   * Hoykj (https://github.com/HOYKJ) : programming consultation
   * 胡又天 () : funder and leader of the Touhou Spire Group,making many things possible to happen
+  * XomB : modify Korean localization.
   * And other members Touhou Spire Group : helping me more than one way
 
 ## See Also ##
